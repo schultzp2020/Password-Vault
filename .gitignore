@@ -1,0 +1,4 @@
+password_vault/__pycache__/
+*.txt
+*.csv
+*.json

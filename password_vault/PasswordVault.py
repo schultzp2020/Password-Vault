@@ -1,0 +1,41 @@
+import hashlib
+from Encryptor import Encryptor
+
+
+def get_email_and_password():
+    """
+    Asks for the users email and password
+    """
+    password = input("What is your password?\n\n* ")
+    print()
+
+    email = input("What is your email?\n\n* ")
+    print()
+    return email, password
+
+
+def generate_key(password, salt):
+    """
+    Generates a key based on a password and a salt input
+    """
+    if(type(password) != type(b"")):
+        password = str.encode(password)
+
+    if(type(salt) != type(b"")):
+        salt = str.encode(salt)
+
+    dk = hashlib.pbkdf2_hmac('sha512', password, salt, 100000)
+    return dk.hex()
+
+
+email, password = get_email_and_password()
+
+first_key = generate_key(password, email)
+second_key = generate_key(first_key, email)
+
+print(first_key)
+print(second_key)
+
+encryptor = Encryptor(first_key)
+
+encryptor.encrypt_file("test.txt")
