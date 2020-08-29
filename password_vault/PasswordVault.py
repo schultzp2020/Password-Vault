@@ -30,7 +30,7 @@ def generate_key(password, salt):
 email, password = get_email_and_password()
 
 first_key = generate_key(password, email)
-second_key = generate_key(first_key, email)
+second_key = generate_key(first_key.hex(), email)
 
 print('Key 1: ', first_key)
 print('Key 2: ', second_key)
