@@ -3,3 +3,4 @@ password_vault/__pycache__/
 *.csv
 *.json
 *.enc
+*.env

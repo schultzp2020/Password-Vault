@@ -1,5 +1,8 @@
 import hashlib
 from Encryptor import Encryptor
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_email_and_password():
@@ -26,6 +29,7 @@ def generate_key(password, salt):
 
     dk = hashlib.pbkdf2_hmac('sha256', password, salt, 100000)
     return dk
+
 
 email, password = get_email_and_password()
 
