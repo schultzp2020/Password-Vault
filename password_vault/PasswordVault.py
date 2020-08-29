@@ -24,17 +24,16 @@ def generate_key(password, salt):
     if(type(salt) != type(b"")):
         salt = str.encode(salt)
 
-    dk = hashlib.pbkdf2_hmac('sha512', password, salt, 100000)
-    return dk.hex()
-
+    dk = hashlib.pbkdf2_hmac('sha256', password, salt, 100000)
+    return dk
 
 email, password = get_email_and_password()
 
 first_key = generate_key(password, email)
 second_key = generate_key(first_key, email)
 
-print(first_key)
-print(second_key)
+print('Key 1: ', first_key)
+print('Key 2: ', second_key)
 
 encryptor = Encryptor(first_key)
 
