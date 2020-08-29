@@ -3,7 +3,7 @@ import os
 
 class Database:
     def __init__(self):
-        # Create a mysql
+        # Create a connection to the database.
         try:
             self.conn = mysql.connector.connect(
                 host=os.getenv('database_host'),
@@ -11,10 +11,10 @@ class Database:
                 password=os.getenv('database_pass'),
                 database=os.getenv('database_schema')
             )
-        except:
-            print(Exception)
-
-        self.cursor = self.conn.cursor()
+        except Exception as inst:
+            print('\nCONNECTION ERROR:', inst, '\nPlease validate .env and try again.\n')
+        else:
+            self.cursor = self.conn.cursor()
 
     def create_pass_table(self):
         self.cursor.execute("CREATE TABLE passwords (password VARCHAR(255) )")
