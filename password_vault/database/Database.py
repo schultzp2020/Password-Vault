@@ -15,6 +15,9 @@ class Database:
             print('\nCONNECTION ERROR:', inst, '\nPlease validate .env and try again.\n')
         else:
             self.cursor = self.conn.cursor()
+    
+    def execute(self, command):
+        if self.cursor == None:
+            return False
 
-    def create_pass_table(self):
-        self.cursor.execute("CREATE TABLE passwords (password VARCHAR(255) )")
+        self.cursor.execute(command)

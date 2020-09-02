@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import unittest
 
 sys.path.insert(0, 'D:\Project\Password-Vault\password_vault')
-from database import *
+from database.Database import *
 
 
 class TestDatabase(unittest.TestCase):
