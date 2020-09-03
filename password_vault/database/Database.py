@@ -21,3 +21,21 @@ class Database:
             return False
 
         self.cursor.execute(command)
+
+    def insertIntoPassword(self, website, username, password, user):
+        # encrypt the data and store it in the database with the user id.
+        self.execute('');
+        pass
+
+    def removeFromPassword(self, password_id, user):
+        # removes a record from the password table
+        pass
+
+    def validateLogin(self, username, password):
+        # check to see if there is a valid database entry for the username/password combination
+        # return the user id on success.
+        pass
+    
+    def addUser(self, username, password):
+        # Insert a new row into the users table.
+        pass
