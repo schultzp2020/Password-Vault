@@ -18,4 +18,4 @@ class TestDatabase(unittest.TestCase):
         pass
 
     def test_insertIntoPassword(self):
-        self.database.test_insertIntoPassword('test.com', 'quinnzipse', 'test123', 1)
+        self.database.insertIntoPassword('test.com', 'quinnzipse', 'test123', 1)

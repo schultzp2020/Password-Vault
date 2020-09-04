@@ -28,9 +28,9 @@ class Database:
         val = (user, website, username, password)
         self.cursor.execute(sql, val)
 
-        mydb.commit()
+        self.conn.commit()
 
-        print(mycursor.rowcount, " record inserted.")
+        print(self.cursor.rowcount, " record inserted.")
         pass
 
     def removeFromPassword(self, password_id, user):
@@ -56,7 +56,7 @@ class Database:
         val = (username, enc_password)
         self.cursor.execute(sql, val)
 
-        mydb.commit()
+        self.conn.commit()
 
-        print(mycursor.rowcount, " record inserted.")
+        print(self.conn.rowcount, " record inserted.")
         pass
