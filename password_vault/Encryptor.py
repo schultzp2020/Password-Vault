@@ -7,13 +7,8 @@ class Encryptor:
     def __init__(self, key):
         self.key = key
 
-<<<<<<< Updated upstream
-    # Pads a string s to have a length divisable by 16.
-    def pad(self, s):
-=======
     @staticmethod
     def pad(s):
->>>>>>> Stashed changes
         return s + b"\0" * (AES.block_size - len(s) % AES.block_size)
 
     def encrypt(self, message, keysize=256):
