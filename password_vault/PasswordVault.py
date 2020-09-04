@@ -1,3 +1,4 @@
+
 import hashlib
 from Encryptor import Encryptor
 
@@ -26,6 +27,10 @@ def generate_key(password, salt):
 
     dk = hashlib.pbkdf2_hmac('sha256', password, salt, 100000)
     return dk
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 email, password = get_email_and_password()
 
@@ -37,4 +42,4 @@ print('Key 2: ', second_key)
 
 encryptor = Encryptor(first_key)
 
-encryptor.encrypt_file("test.txt")
+encryptor.decrypt_file("test.txt.enc")
